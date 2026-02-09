@@ -1,0 +1,57 @@
+/* reset default css style */
+@import url(./reset.css);
+
+/* components */
+@import url(./component/button-dropdown-link.css);
+@import url(./component/dropdown.css);
+
+/* fonts */
+@import url(../media/MaterialSymbols-Rounded.DsbC8sYI.woff2);
+@import url(../media/SourceCodeVF-Upright.ttf.BjWn63N-.woff2);
+@import url(../media/SourceSansVF-Upright.ttf.BsWL4Kly.woff2);
+
+:root {
+  --white: #ffffff;
+  --black: #000000;
+
+  --gray-2: rgb(240, 242, 246);
+
+  /* fonts */
+  --font-family: "Source Sans", sans-serif;
+  --primary-font: "Source Sans", sans-serif;
+  --primary-color: rgb(49, 51, 63);
+  --primary-font-size: 1rem;
+  --primary-font-weight: 400;
+
+  /* borders */
+  --border-line-width: 1px;
+  --border-color: rgba(49, 51, 63, 0.2);
+  --border-radius: 0.5rem;
+
+  /* button-dropdown-link */
+  --button-dropdown-link-bg: rgb(249, 249, 251);
+  --button-dropdown-link-hover-bg: rgba(151, 166, 195, 0.15);
+}
+
+*,
+html,
+body,
+::before,
+::after {
+  box-sizing: border-box;
+}
+
+body {
+  background-color: #e6f2ff;
+  font-family: "Source Sans", sans-serif;
+}
+
+#sidebar {
+  min-height: 100vh;
+}
+
+@media (max-width: 768px) {
+  #sidebar {
+    min-height: auto;
+  }
+}
