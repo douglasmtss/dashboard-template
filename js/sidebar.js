@@ -1,40 +1,46 @@
+import { generateElementId } from './util/generate-element-id.js';
 import { renderButtonDropdownLink } from './component/button-dropdown-link.js';
 
 
-// sidebar.js
-export function renderSidebar(container) {
-    const sidebarHTML = `
-    <div class="p-3">
-      <img src="https://www.pintorabrapp.com.br/favicon.ico" class="img-fluid mb-3" alt="Logo">
-      <h5>Navegação</h5>
-      <ul class="nav flex-column">
-        <li class="nav-item">
-            <div id="custom-dropdown-link"></div>
-        </li>
-      </ul>
-    </div>
-  `;
-    container.innerHTML = sidebarHTML;
-    // Renderiza botão customizado via jQuery para garantir o evento
-    $('#custom-dropdown-link', container).html(
-        renderButtonDropdownLink({
-            value: 'Número de votos',
-            onclick: () => {
-                console.log('Número de votos clicado');
-                window.location.hash = '#votos';
-            },
-            dropdown: [
-                {
-                    value: 'Casal da Pintura MBPM',
-                    title: 'ABRAPP & MBPM',
-                    href: '#personalidades-casal',
-                    onclick: () => {
-                        console.log('2024 clicado');
-                        window.location.hash = '#votos-2024';
-                    }
-                },
-                { value: 'Líder Feminina Destaque MBPM', onclick: () => { console.log('2025 clicado'); window.location.hash = '#votos-2025'; } },
-            ],
-        })
-    );
+/**
+ * 
+ * @param {jQuery} $container 
+ * @param {import('./type/types.js').SidebarConfigPropTypes} sidebarConfig 
+ * @returns 
+ */
+export function renderSidebar($container, sidebarConfig) {
+    if (!$container || $container?.length === 0) {
+        console.error('Sidebar container not found');
+        return;
+    }
+
+    const container = $container[0]; // Get the DOM element from jQuery object
+
+    container.innerHTML = `
+        <div class="p-3 flex-column gap-4">
+            <img src=${sidebarConfig.img} class="img-fluid mb-3" alt="Logo">
+            <h5>${sidebarConfig.title}</h5>
+            <ul class="nav flex-column gap-3">
+                <!-- Menu items should be dynamically inserted here -->
+            </ul>
+        </div>
+    `;
+
+    sidebarConfig.items.forEach((item, index) => {
+        const itemId = generateElementId(`sidebar-item-${index}`);
+        const itemHTML = `
+            <li class="nav-item">
+                <div id="${itemId}"></div>
+            </li>
+        `;
+        container.querySelector('.nav').insertAdjacentHTML('beforeend', itemHTML);
+
+        $(`#${itemId}`, container).html(
+            renderButtonDropdownLink({
+                value: item.value,
+                onclick: item.onclick,
+                dropdown: item.dropdown,
+            })
+        );
+    });
 }

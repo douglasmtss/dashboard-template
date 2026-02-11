@@ -7,7 +7,7 @@ import { DropdownComponent } from './dropdown.js';
  * @returns {string} HTML string for button-dropdown-link component
  */
 export function renderButtonDropdownLink(props) {
-    const { value, onclick, dropdown, } = props;
+    const { value, onclick, href, dropdown, } = props;
 
     const componentClassPrefix = 'button-dropdown-link';
     const hasDropdown = dropdown && dropdown.length > 0;
@@ -52,7 +52,7 @@ export function renderButtonDropdownLink(props) {
                 aria-expanded="false"
             >
                 ${icon}
-                <p>${value}</p>
+                <a href="${href}">${value}</a>
             </button>
         </div>
     `).on('click', `.${componentClassPrefix}`, toggleDropdown);
@@ -60,6 +60,7 @@ export function renderButtonDropdownLink(props) {
 
 const DropdownItemPropTypes = {
     value: PropTypes.string,
+    href: PropTypes.string,
     onclick: PropTypes.func,
     href: PropTypes.string,
 };
