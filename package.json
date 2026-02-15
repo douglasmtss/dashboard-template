@@ -1,18 +1,30 @@
 {
   "name": "dashboard-template",
   "version": "1.0.0",
-  "main": "./js/app.js",
+  "main": "./src/js/app.js",
   "repository": "git@github.com:douglasmtss/dashboard-template.git",
   "author": "douglasmtss <douglasmatosdev@gmail.com>",
   "license": "MIT",
   "engines": {
-    "node": ">=22.16.0"
+    "node": ">=22.19.0",
+    "npm": ">=9.0.0"
   },
   "scripts": {
     "start": "browser-sync start --config bs-config.js",
-    "start:silent": "browser-sync start --config bs-config.js --no-open --logLevel silent"
+    "start:silent": "browser-sync start --config bs-config.js --no-open --logLevel silent",
+    "lint": "eslint .",
+    "lint:fix": "eslint . --fix",
+    "format": "prettier --write \"**/*.{js,json,css,html,md}\"",
+    "format:check": "prettier --check \"**/*.{js,json,css,html,md}\"",
+    "check": "npm run lint && npm run format:check"
   },
   "devDependencies": {
-    "browser-sync": "^3.0.4"
+    "@eslint/js": "^10.0.1",
+    "browser-sync": "^3.0.4",
+    "eslint": "^10.0.0",
+    "eslint-config-prettier": "^10.1.8",
+    "eslint-plugin-prettier": "^5.5.5",
+    "globals": "^17.3.0",
+    "prettier": "^3.8.1"
   }
 }
