@@ -3,7 +3,7 @@
  * Each item can have a value, a click function, and an optional dropdown.
  */
 const sidebarConfig = {
-    img: '/static/logo_premio/premio_sem_data_e_background/2.png',
+    img: '/public/static/logo_premio/premio_sem_data_e_background/2.png',
     title: 'Navegação',
     items: [
         {
