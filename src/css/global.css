@@ -6,9 +6,26 @@
 @import url(./component/dropdown.css);
 
 /* fonts */
-@import url(../media/MaterialSymbols-Rounded.DsbC8sYI.woff2);
-@import url(../media/SourceCodeVF-Upright.ttf.BjWn63N-.woff2);
-@import url(../media/SourceSansVF-Upright.ttf.BsWL4Kly.woff2);
+@font-face {
+  font-family: 'Material Symbols Rounded';
+  font-style: normal;
+  font-weight: 100 900;
+  src: url(../../public/media/MaterialSymbols-Rounded.DsbC8sYI.woff2) format('woff2');
+}
+
+@font-face {
+  font-family: 'Source Code';
+  font-style: normal;
+  font-weight: 100 900;
+  src: url(../../public/media/SourceCodeVF-Upright.ttf.BjWn63N-.woff2) format('woff2');
+}
+
+@font-face {
+  font-family: 'Source Sans';
+  font-style: normal;
+  font-weight: 100 900;
+  src: url(../../public/media/SourceSansVF-Upright.ttf.BsWL4Kly.woff2) format('woff2');
+}
 
 :root {
   --white: #ffffff;
