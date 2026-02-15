@@ -9,42 +9,59 @@ import { DropdownComponent } from './dropdown.js';
 export function renderButtonDropdownLink(props) {
     const { value, onclick, href, dropdown, } = props;
 
+    let state = {
+        dropdown: {
+            opened: 'dropdown-opened',
+            closed: 'dropdown-closed',
+        },
+        dropdownMenu: {
+            opened: 'menu-opened',
+            closed: 'menu-closed',
+        }
+    }
+
     const componentClassPrefix = 'button-dropdown-link';
     const hasDropdown = dropdown && dropdown.length > 0;
-    const dropdownState = {
-        opened: 'dropdown-opened',
-        closed: 'dropdown-closed',
-    }
 
     const buttonId = generateElementId(componentClassPrefix);
     const icon = hasDropdown ? ChevronIcon('right') : '';
 
-    function toggleDropdown(e) {
-        e.stopPropagation();
+    /**
+     * 
+     * @param {Event} event - click event
+     */
+    function toggleDropdown(event) {
+        event.stopPropagation();
+
         if (hasDropdown) {
-            // Toggle dropdown state in container element
-            const container = $(e.currentTarget).closest(`.${componentClassPrefix}-container`);
-            container.toggleClass(dropdownState.opened).toggleClass(dropdownState.closed);
+            /**
+             * button-dropdown-link-container
+             */
+            const $buttonContainer = $(event.currentTarget).closest(`.${componentClassPrefix}-container`);
+            if ($buttonContainer.length) {
+                // Toggle dropdown state in container element
+                $buttonContainer.toggleClass(state.dropdown.opened).toggleClass(state.dropdown.closed);
 
-            // Toggle icon direction based on dropdown state
-            const isOpen = container.hasClass(dropdownState.opened);
-            const newIconDirection = isOpen ? 'down' : 'right';
-            $(`#${buttonId}`).find('i').attr('class', `fas fa-chevron-${newIconDirection}`);
+            }
+            
+            /**
+             * custom-dropdown-menu
+            */
+           const $dropdownMenu = $buttonContainer.siblings('.custom-dropdown-menu');
 
-          
-            if (isOpen && container.find('.custom-dropdown-menu').length === 0) {
-                container.append(DropdownComponent(dropdown));
-                return;
+            if ($dropdownMenu.length) {
+                $dropdownMenu.toggleClass(state.dropdownMenu.opened).toggleClass(state.dropdownMenu.closed);
             }
 
-            container.find('.custom-dropdown-menu').toggleClass('menu-opened').toggleClass('menu-closed');
+            // Toggle chevron icon direction
+            $(event.currentTarget).find('i').toggleClass('fa-chevron-right').toggleClass('fa-chevron-down');
         }
 
         onclick();
     }
 
     return $(`
-        <div class="${componentClassPrefix}-container ${hasDropdown ? dropdownState.closed : ''}">
+        <div class="${componentClassPrefix}-container ${hasDropdown ? state.dropdown.closed : ''}">
             <button
                 class="${componentClassPrefix}"
                 id="${buttonId}"
@@ -54,6 +71,9 @@ export function renderButtonDropdownLink(props) {
                 ${icon}
                 <a href="${href}">${value}</a>
             </button>
+        </div>
+        <div class="custom-dropdown-menu ${hasDropdown ? state.dropdownMenu.closed : ''}">
+            ${DropdownComponent(dropdown)}
         </div>
     `).on('click', `.${componentClassPrefix}`, toggleDropdown);
 }

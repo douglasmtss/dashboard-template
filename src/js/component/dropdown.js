@@ -1,3 +1,5 @@
+import { renderButtonDropdownLink } from './button-dropdown-link.js'
+
 /**
  * 
  * @param {import('../type/types.js').DropdownItemPropTypes[]} dropdown - array of dropdown items
@@ -6,29 +8,28 @@
 export const DropdownComponent = (dropdown) => {
     if (!dropdown || dropdown?.length === 0) return '';
 
-    const itemsHTML = dropdown.map(item => {
+    return dropdown.map(item => {
         const title = item?.title ? `<h6>${item.title}</h6>` : '';
+
+        if (item?.dropdown) {
+            return $(renderButtonDropdownLink(item)).html();
+        }
+
         return `
             <ul>
                 ${title}
                 <li>
                     <a
                         href="${item?.href || '#'}"
+                        onclick="${item?.onclick ? item.onclick : ''}"
                     >
                         ${item?.value ?? ''}
                     </a>
                 </li>
             </ul>
         `;
+
     }).join('');
-
-    const container = $('<div>').html(`
-        <div class="custom-dropdown-menu menu-opened">
-            ${itemsHTML}
-        </div>
-    `).html();
-
-    return container;
 };
 
 DropdownComponent.prototype = {

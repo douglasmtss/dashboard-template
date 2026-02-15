@@ -1,7 +1,7 @@
 /**
  * 
  * @param {'up' | 'right' | 'down' | 'left'} direction 
- * @returns 
+ * @returns {string} HTML string for chevron icon
  */
 export function ChevronIcon(direction) {
     return `
