@@ -9,5 +9,5 @@ export function renderHeader(container) {
         </a>
       </div>
     </nav>
-  `;
+  `
 }

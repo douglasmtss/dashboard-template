@@ -3,11 +3,16 @@
 // Tipagem com PropTypes
 const votosChartPropTypes = {
   containerId: PropTypes.string.isRequired,
-};
+}
 
 export function renderVotosChart(containerId) {
-  PropTypes.checkPropTypes(votosChartPropTypes, { containerId }, 'prop', 'renderVotosChart');
-  const chart = echarts.init(document.getElementById(containerId));
+  PropTypes.checkPropTypes(
+    votosChartPropTypes,
+    { containerId },
+    'prop',
+    'renderVotosChart',
+  )
+  const chart = echarts.init(document.getElementById(containerId))
   const option = {
     title: {
       text: 'Resumo dos Votos Válidos por Ano',
@@ -44,7 +49,7 @@ export function renderVotosChart(containerId) {
       },
     ],
     responsive: true,
-  };
-  chart.setOption(option);
-  window.addEventListener('resize', () => chart.resize());
+  }
+  chart.setOption(option)
+  window.addEventListener('resize', () => chart.resize())
 }

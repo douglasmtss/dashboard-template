@@ -1,17 +1,17 @@
 // mainContent.js
-import { renderVotosChart } from '../../charts/votosChart.js';
+import { renderVotosChart } from '../../charts/votosChart.js'
 
 export function renderMainContent(container) {
-  const hash = window.location.hash || '#votos';
-  $(container).empty();
+  const hash = window.location.hash || '#votos'
+  $(container).empty()
   if (hash === '#votos') {
     $(container).html(`
       <section class="p-3">
         <h2>Número de Votos</h2>
         <div id="votos-chart" style="height:400px;"></div>
       </section>
-    `);
-    renderVotosChart('votos-chart');
+    `)
+    renderVotosChart('votos-chart')
   } else if (hash === '#personalidades') {
     $(container).html(`
       <section class="p-3">
@@ -24,10 +24,10 @@ export function renderMainContent(container) {
         </ul>
         <div id="personalidades-content"></div>
       </section>
-    `);
-    renderPersonalidadesContent();
+    `)
+    renderPersonalidadesContent()
   } else if (hash.startsWith('#personalidades-')) {
-    renderPersonalidadesContent(container);
+    renderPersonalidadesContent(container)
   } else if (hash === '#varejo') {
     $(container).html(`
       <section class="p-3">
@@ -37,10 +37,10 @@ export function renderMainContent(container) {
         </ul>
         <div id="varejo-content"></div>
       </section>
-    `);
-    renderVarejoContent();
+    `)
+    renderVarejoContent()
   } else if (hash.startsWith('#varejo-')) {
-    renderVarejoContent(container);
+    renderVarejoContent(container)
   } else if (hash === '#industria') {
     $(container).html(`
       <section class="p-3">
@@ -51,10 +51,10 @@ export function renderMainContent(container) {
         </ul>
         <div id="industria-content"></div>
       </section>
-    `);
-    renderIndustriaContent();
+    `)
+    renderIndustriaContent()
   } else if (hash.startsWith('#industria-')) {
-    renderIndustriaContent(container);
+    renderIndustriaContent(container)
   } else if (hash === '#abrafati') {
     $(container).html(`
       <section class="p-3">
@@ -65,73 +65,73 @@ export function renderMainContent(container) {
         </ul>
         <div id="abrafati-content"></div>
       </section>
-    `);
-    renderAbrafatiContent();
+    `)
+    renderAbrafatiContent()
   } else if (hash.startsWith('#abrafati-')) {
-    renderAbrafatiContent(container);
+    renderAbrafatiContent(container)
   } else {
-    $(container).html(`<section class="p-3"><h2>Em breve...</h2></section>`);
+    $(container).html(`<section class="p-3"><h2>Em breve...</h2></section>`)
   }
 }
 
 function renderPersonalidadesContent(container) {
-  const hash = window.location.hash;
-  let html = '';
+  const { hash } = window.location
+  let html = ''
   if (hash === '#personalidades-casal') {
-    html = `<h3>Casal da Pintura MBPM</h3><p>Conteúdo do Casal da Pintura MBPM.</p>`;
+    html = `<h3>Casal da Pintura MBPM</h3><p>Conteúdo do Casal da Pintura MBPM.</p>`
   } else if (hash === '#personalidades-feminina') {
-    html = `<h3>Líder Feminina Destaque MBPM</h3><p>Conteúdo da Líder Feminina Destaque MBPM.</p>`;
+    html = `<h3>Líder Feminina Destaque MBPM</h3><p>Conteúdo da Líder Feminina Destaque MBPM.</p>`
   } else if (hash === '#personalidades-masculina') {
-    html = `<h3>Líder Masculino Destaque MBPM</h3><p>Conteúdo do Líder Masculino Destaque MBPM.</p>`;
+    html = `<h3>Líder Masculino Destaque MBPM</h3><p>Conteúdo do Líder Masculino Destaque MBPM.</p>`
   } else if (hash === '#personalidades-profissional') {
-    html = `<h3>Pintor(a) Profissional MBPM</h3><p>Conteúdo do Pintor(a) Profissional MBPM.</p>`;
+    html = `<h3>Pintor(a) Profissional MBPM</h3><p>Conteúdo do Pintor(a) Profissional MBPM.</p>`
   }
   if (container) {
-    $(container).html(`<section class="p-3">${html}</section>`);
+    $(container).html(`<section class="p-3">${html}</section>`)
   } else {
-    $('#personalidades-content').html(html);
+    $('#personalidades-content').html(html)
   }
 }
 
 function renderVarejoContent(container) {
-  const hash = window.location.hash;
-  let html = '';
+  const { hash } = window.location
+  let html = ''
   if (hash === '#varejo-revendas') {
-    html = `<h3>Revendas / Lojistas</h3><p>Conteúdo de Revendas / Lojistas.</p>`;
+    html = `<h3>Revendas / Lojistas</h3><p>Conteúdo de Revendas / Lojistas.</p>`
   }
   if (container) {
-    $(container).html(`<section class="p-3">${html}</section>`);
+    $(container).html(`<section class="p-3">${html}</section>`)
   } else {
-    $('#varejo-content').html(html);
+    $('#varejo-content').html(html)
   }
 }
 
 function renderIndustriaContent(container) {
-  const hash = window.location.hash;
-  let html = '';
+  const { hash } = window.location
+  let html = ''
   if (hash === '#industria-equipamento') {
-    html = `<h3>Equipamento de Pintura</h3><p>Conteúdo de Equipamento de Pintura.</p>`;
+    html = `<h3>Equipamento de Pintura</h3><p>Conteúdo de Equipamento de Pintura.</p>`
   } else if (hash === '#industria-madeira') {
-    html = `<h3>Indústria Madeira</h3><p>Conteúdo de Indústria Madeira.</p>`;
+    html = `<h3>Indústria Madeira</h3><p>Conteúdo de Indústria Madeira.</p>`
   }
   if (container) {
-    $(container).html(`<section class="p-3">${html}</section>`);
+    $(container).html(`<section class="p-3">${html}</section>`)
   } else {
-    $('#industria-content').html(html);
+    $('#industria-content').html(html)
   }
 }
 
 function renderAbrafatiContent(container) {
-  const hash = window.location.hash;
-  let html = '';
+  const { hash } = window.location
+  let html = ''
   if (hash === '#abrafati-nacional') {
-    html = `<h3>Nacional</h3><p>Conteúdo Nacional PQS - ABRAFATI.</p>`;
+    html = `<h3>Nacional</h3><p>Conteúdo Nacional PQS - ABRAFATI.</p>`
   } else if (hash === '#abrafati-regional') {
-    html = `<h3>Regional</h3><p>Conteúdo Regional PQS - ABRAFATI.</p>`;
+    html = `<h3>Regional</h3><p>Conteúdo Regional PQS - ABRAFATI.</p>`
   }
   if (container) {
-    $(container).html(`<section class="p-3">${html}</section>`);
+    $(container).html(`<section class="p-3">${html}</section>`)
   } else {
-    $('#abrafati-content').html(html);
+    $('#abrafati-content').html(html)
   }
 }

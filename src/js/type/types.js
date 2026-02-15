@@ -23,4 +23,4 @@
  */
 
 // Mark the file as a module for type compatibility
-export {};
+export {}
