@@ -5,8 +5,13 @@
   "repository": "git@github.com:douglasmtss/dashboard-template.git",
   "author": "douglasmtss <douglasmatosdev@gmail.com>",
   "license": "MIT",
+  "scripts": {
+    "start": "browser-sync start --config bs-config.js",
+    "start:silent": "browser-sync start --config bs-config.js --no-open --logLevel silent"
+  },
   "devDependencies": {
     "@eslint/js": "^10.0.1",
+    "browser-sync": "^3.0.4",
     "eslint": "^10.0.0",
     "eslint-config-prettier": "^10.1.8",
     "eslint-plugin-prettier": "^5.5.5",
