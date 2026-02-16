@@ -7,11 +7,9 @@ import js from '@eslint/js'
 import globals from 'globals'
 import prettier from 'eslint-plugin-prettier'
 import prettierConfig from 'eslint-config-prettier'
+import json from '@eslint/json'
 
 export default [
-    // Configuração base recomendada do ESLint
-    js.configs.recommended,
-
     // Ignorar arquivos e pastas
     {
         ignores: [
@@ -23,12 +21,16 @@ export default [
             '**/*.min.js',
             'public/media/**',
             'public/static/**',
+            '**/package-lock.json',
+            '**/.vscode/**',
+            '**/*.css', // CSS é validado pelo Stylelint
         ],
     },
 
     // Configuração principal para arquivos JavaScript
     {
         files: ['**/*.js', '**/*.mjs'],
+        ...js.configs.recommended,
 
         languageOptions: {
             ecmaVersion: 2024,
@@ -214,6 +216,31 @@ export default [
             globals: {
                 ...globals.node,
             },
+        },
+    },
+
+    // Configuração para arquivos JSONC (JSON com comentários) - deve vir ANTES de JSON puro
+    {
+        files: ['**/.vscode/**/*.json', '**/tsconfig*.json', '**/jsconfig.json'],
+        plugins: {
+            json,
+        },
+        language: 'json/jsonc',
+        rules: {
+            'json/no-duplicate-keys': 'error',
+        },
+    },
+
+    // Configuração para arquivos JSON
+    {
+        files: ['**/*.json'],
+        ignores: ['**/package-lock.json'],
+        plugins: {
+            json,
+        },
+        language: 'json/json',
+        rules: {
+            'json/no-duplicate-keys': 'error',
         },
     },
 

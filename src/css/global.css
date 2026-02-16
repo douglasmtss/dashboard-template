@@ -1,53 +1,53 @@
 /* reset default css style */
-@import url(./reset.css);
+@import url('./reset.css');
 
 /* components */
-@import url(./component/button-dropdown-link.css);
-@import url(./component/dropdown.css);
+@import url('./component/button-dropdown-link.css');
+@import url('./component/dropdown.css');
 
 /* fonts */
 @font-face {
-  font-family: 'Material Symbols Rounded';
-  font-style: normal;
-  font-weight: 100 900;
-  src: url(../../public/media/MaterialSymbols-Rounded.DsbC8sYI.woff2) format('woff2');
+    font-family: 'Material Symbols Rounded';
+    font-style: normal;
+    font-weight: 100 900;
+    src: url('../../public/media/MaterialSymbols-Rounded.DsbC8sYI.woff2') format('woff2');
 }
 
 @font-face {
-  font-family: 'Source Code';
-  font-style: normal;
-  font-weight: 100 900;
-  src: url(../../public/media/SourceCodeVF-Upright.ttf.BjWn63N-.woff2) format('woff2');
+    font-family: 'Source Code';
+    font-style: normal;
+    font-weight: 100 900;
+    src: url('../../public/media/SourceCodeVF-Upright.ttf.BjWn63N-.woff2') format('woff2');
 }
 
 @font-face {
-  font-family: 'Source Sans';
-  font-style: normal;
-  font-weight: 100 900;
-  src: url(../../public/media/SourceSansVF-Upright.ttf.BsWL4Kly.woff2) format('woff2');
+    font-family: 'Source Sans';
+    font-style: normal;
+    font-weight: 100 900;
+    src: url('../../public/media/SourceSansVF-Upright.ttf.BsWL4Kly.woff2') format('woff2');
 }
 
 :root {
-  --white: #ffffff;
-  --black: #000000;
+    --white: #fff;
+    --black: #000;
 
-  --gray-2: rgb(240, 242, 246);
+    --gray-2: rgb(240, 242, 246);
 
-  /* fonts */
-  --font-family: "Source Sans", sans-serif;
-  --primary-font: "Source Sans", sans-serif;
-  --primary-color: rgb(49, 51, 63);
-  --primary-font-size: 1rem;
-  --primary-font-weight: 400;
+    /* fonts */
+    --font-family: 'Source Sans', sans-serif;
+    --primary-font: 'Source Sans', sans-serif;
+    --primary-color: rgb(49, 51, 63);
+    --primary-font-size: 1rem;
+    --primary-font-weight: 400;
 
-  /* borders */
-  --border-line-width: 1px;
-  --border-color: rgba(49, 51, 63, 0.2);
-  --border-radius: 0.5rem;
+    /* borders */
+    --border-line-width: 1px;
+    --border-color: rgb(49, 51, 63, 0.2);
+    --border-radius: 0.5rem;
 
-  /* button-dropdown-link */
-  --button-dropdown-link-bg: rgb(249, 249, 251);
-  --button-dropdown-link-hover-bg: rgba(151, 166, 195, 0.15);
+    /* button-dropdown-link */
+    --button-dropdown-link-bg: rgb(249, 249, 251);
+    --button-dropdown-link-hover-bg: rgb(151, 166, 195, 0.15);
 }
 
 *,
@@ -55,10 +55,10 @@ html,
 body,
 ::before,
 ::after {
-  box-sizing: border-box;
+    box-sizing: border-box;
 }
 
 body {
-  background-color: #e6f2ff;
-  font-family: "Source Sans", sans-serif;
+    background-color: #e6f2ff;
+    font-family: 'Source Sans', sans-serif;
 }

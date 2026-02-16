@@ -3,7 +3,8 @@
   "editor.defaultFormatter": "esbenp.prettier-vscode",
   "editor.formatOnSave": true,
   "editor.codeActionsOnSave": {
-    "source.fixAll.eslint": "explicit"
+    "source.fixAll.eslint": "explicit",
+    "source.fixAll.stylelint": "explicit"
   },
   "editor.tabSize": 4,
   "editor.insertSpaces": true,
@@ -13,7 +14,9 @@
   "eslint.enable": true,
   "eslint.validate": [
     "javascript",
-    "javascriptreact"
+    "javascriptreact",
+    "json",
+    "jsonc"
   ],
   "eslint.useFlatConfig": true,
   "eslint.workingDirectories": [
@@ -21,7 +24,9 @@
   ],
   "eslint.probe": [
     "javascript",
-    "javascriptreact"
+    "javascriptreact",
+    "json",
+    "jsonc"
   ],
   "eslint.format.enable": true,
   "eslint.lintTask.enable": true,
@@ -32,6 +37,11 @@
   // Prettier
   "prettier.enable": true,
   "prettier.requireConfig": true,
+
+  // Stylelint
+  "stylelint.enable": true,
+  "stylelint.validate": ["css"],
+  "css.validate": false,
 
   // Files
   "files.eol": "\n",
@@ -49,7 +59,10 @@
     "editor.defaultFormatter": "esbenp.prettier-vscode"
   },
   "[css]": {
-    "editor.defaultFormatter": "esbenp.prettier-vscode"
+    "editor.defaultFormatter": "stylelint.vscode-stylelint",
+    "editor.codeActionsOnSave": {
+      "source.fixAll.stylelint": "explicit"
+    }
   },
 
   // Emmet
