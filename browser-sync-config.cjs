@@ -2,7 +2,6 @@
  * Browser-sync configuration for development
  * https://browsersync.io/docs/options
  */
-// eslint-disable-next-line no-undef
 module.exports = {
     // Serve files from the root directory
     server: {

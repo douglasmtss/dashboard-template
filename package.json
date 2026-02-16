@@ -6,13 +6,9 @@
     "repository": "git@github.com:douglasmtss/dashboard-template.git",
     "author": "douglasmtss <douglasmatosdev@gmail.com>",
     "license": "MIT",
-    "engines": {
-        "node": ">=22.19.0",
-        "npm": ">=9.0.0"
-    },
     "scripts": {
-        "start": "browser-sync start --config browser-sync-config.js",
-        "start:silent": "browser-sync start --config browser-sync-config.js --no-open --logLevel silent",
+        "start": "browser-sync start --config browser-sync-config.cjs",
+        "start:silent": "browser-sync start --config browser-sync-config.cjs --no-open --logLevel silent",
         "lint": "eslint .",
         "lint:fix": "eslint . --fix",
         "lint:css": "stylelint \"**/*.css\"",
