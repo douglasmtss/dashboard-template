@@ -62,13 +62,3 @@ body {
   background-color: #e6f2ff;
   font-family: "Source Sans", sans-serif;
 }
-
-#sidebar {
-  min-height: 100vh;
-}
-
-@media (max-width: 768px) {
-  #sidebar {
-    min-height: auto;
-  }
-}
