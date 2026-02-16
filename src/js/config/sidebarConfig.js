@@ -90,6 +90,51 @@ const sidebarConfig = {
                                 // window.location.hash = '#industria-acessorios';
                             },
                         },
+                        {
+                            value: 'Equipamentos de Pintura Acabamento',
+                            title: null,
+                            href: '#industria-acessorios',
+                            onclick: () => {
+                                console.log('Equipamentos de Pintura Acabamento clicado')
+                                // window.location.hash = '#industria-acessorios';
+                            },
+                        },
+                        {
+                            value: 'Fita Adesiva',
+                            title: null,
+                            href: '#industria-acessorios',
+                            onclick: () => {
+                                console.log('Fita Adesiva clicado')
+                                // window.location.hash = '#industria-acessorios';
+                            },
+                        },
+                        {
+                            value: 'Lixa e Abrasivo',
+                            title: null,
+                            href: '#industria-acessorios',
+                            onclick: () => {
+                                console.log('Lixa e Abrasivo clicado')
+                                // window.location.hash = '#industria-acessorios';
+                            },
+                        },
+                        {
+                            value: 'Proteção de acabamento',
+                            title: null,
+                            href: '#industria-acessorios',
+                            onclick: () => {
+                                console.log('Proteção de acabamento clicado')
+                                // window.location.hash = '#industria-acessorios';
+                            },
+                        },
+                        {
+                            value: 'Acessórios de Pintura',
+                            title: null,
+                            href: '#industria-acessorios',
+                            onclick: () => {
+                                console.log('Acessórios de Pintura clicado')
+                                // window.location.hash = '#industria-acessorios';
+                            },
+                        },
                     ],
                 },
             ],

@@ -99,5 +99,6 @@
 
 .custom-dropdown-menu li a {
     color: inherit;
+    text-align: center;
     text-decoration: none;
 }

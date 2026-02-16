@@ -11,33 +11,34 @@ import { renderButtonDropdownLink } from './button-dropdown-link.js'
 export const DropdownComponent = (dropdown, componentMenuClassPrefix, hasDropdown) => {
     if (!dropdown || dropdown?.length === 0) return ''
 
-    const html = dropdown
-        .map(item => {
-            const title = item?.title ? `<h6>${item.title}</h6>` : ''
+    const html = $('<ul>').append(
+        dropdown
+            .map(item => {
+                const title = item?.title ? `<h6>${item.title}</h6>` : ''
 
-            if (item?.isHeader) {
-                return $('<div>').append(renderButtonDropdownLink(item)).html()
-            }
+                if (item?.isHeader) {
+                    return $('<div>').append(renderButtonDropdownLink(item)).html()
+                }
 
-            return `
-                <ul>
+                return `
                     ${title}
                     <li>
                         <a
                             href="${item?.href || '#'}"
                             onclick="${item?.onclick ? item.onclick : ''}"
                         >
-                            ${item?.value ?? ''}
+                            ${item?.value?.trim() ?? ''}
                         </a>
                     </li>
-                </ul>
             `
-        })
-        .join('')
+            })
+            .join('')
+            ?.trim() || '',
+    )
 
     return `
         <div class="${componentMenuClassPrefix} ${hasDropdown ? dropdownState.dropdownMenu.closed : ''}">
-        ${html}
+        ${html.html()}
         </div>
     `
 }
