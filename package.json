@@ -10,8 +10,8 @@
     "npm": ">=9.0.0"
   },
   "scripts": {
-    "start": "browser-sync start --config bs-config.js",
-    "start:silent": "browser-sync start --config bs-config.js --no-open --logLevel silent",
+    "start": "browser-sync start --config browser-sync-config.js",
+    "start:silent": "browser-sync start --config browser-sync-config.js --no-open --logLevel silent",
     "lint": "eslint .",
     "lint:fix": "eslint . --fix",
     "format": "prettier --write \"**/*.{js,json,css,html,md}\"",
