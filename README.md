@@ -124,30 +124,6 @@ yarn check
 npm run check
 ```
 
-## �📁 Estrutura do Projeto
-
-```
-dashboard-template/
-├── public/
-│   ├── index.html          # Página principal
-│   ├── media/              # Imagens e mídia
-│   └── static/             # Arquivos estáticos
-├── src/
-│   ├── charts/             # Gráficos (ECharts)
-│   ├── css/                # Estilos CSS
-│   │   ├── global.css
-│   │   ├── reset.css
-│   │   └── component/      # Estilos de componentes
-│   └── js/                 # JavaScript modular
-│       ├── app.js          # Entry point
-│       ├── component/      # Componentes
-│       ├── config/         # Configurações
-│       ├── layout/         # Layouts (header, footer, sidebar)
-│       ├── type/           # Tipos
-│       └── util/           # Utilitários
-└── bs-config.js            # Configuração do browser-sync
-```
-
 ## 🛠️ Tecnologias
 
 - **Browser Sync** - Servidor de desenvolvimento com hot reload
