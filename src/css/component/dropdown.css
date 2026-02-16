@@ -26,7 +26,6 @@
     flex-flow: column;
     flex: 1 1 0%;
     align-items: start;
-    -webkit-box-pack: start;
     justify-content: start;
     block-size: auto;
     block-size: calc(100%);
@@ -58,7 +57,6 @@
     flex-flow: column;
     flex: 1 1 0%;
     align-items: start;
-    -webkit-box-pack: start;
     justify-content: start;
 }
 
@@ -71,7 +69,6 @@
     overflow: visible;
     display: inline-flex;
     align-items: center;
-    -webkit-box-pack: center;
     justify-content: center;
     font-weight: var(--primary-font-weight);
     padding: 0.25rem 0.75rem;
