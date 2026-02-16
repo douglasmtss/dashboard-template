@@ -29,11 +29,11 @@
     justify-content: start;
 
     block-size: auto;
-    block-size: calc-size(auto);
-
-    &:not(.custom-dropdown-menu.menu-opened) {
-        gap: 1rem;
-    }
+    block-size: calc(100%);
+    gap: 1rem;
+}
+.custom-dropdown-menu.menu-opened:has(.custom-dropdown-menu.menu-opened) {
+    gap: initial;
 }
 
 .custom-dropdown-menu.menu-closed {
