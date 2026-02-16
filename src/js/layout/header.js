@@ -1,6 +1,6 @@
 // header.js
 export function renderHeader(container) {
-  container.innerHTML = `
+    container.innerHTML = `
     <nav class="navbar navbar-expand-lg navbar-light bg-white shadow-sm mb-3">
       <div class="container-fluid">
         <a class="navbar-brand" href="#">

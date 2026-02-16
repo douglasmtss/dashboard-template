@@ -8,14 +8,14 @@ import { renderButtonDropdownLink } from '../component/button-dropdown-link.js'
  * @returns
  */
 export function renderSidebar($container, sidebarConfig) {
-  if (!$container || $container?.length === 0) {
-    console.error('Sidebar container not found')
-    return
-  }
+    if (!$container || $container?.length === 0) {
+        console.error('Sidebar container not found')
+        return
+    }
 
-  const container = $container[0] // Get the DOM element from jQuery object
+    const container = $container[0] // Get the DOM element from jQuery object
 
-  container.innerHTML = `
+    container.innerHTML = `
         <div class="p-3 flex-column gap-4">
             <img src=${sidebarConfig.img} class="img-fluid mb-3" alt="Logo">
             <h5>${sidebarConfig.title}</h5>
@@ -25,22 +25,22 @@ export function renderSidebar($container, sidebarConfig) {
         </div>
     `
 
-  sidebarConfig.items.forEach((item, index) => {
-    const itemId = generateElementId(`sidebar-item-${index}`)
-    const itemHTML = `
+    sidebarConfig.items.forEach((item, index) => {
+        const itemId = generateElementId(`sidebar-item-${index}`)
+        const itemHTML = `
             <li class="nav-item">
                 <div id="${itemId}"></div>
             </li>
         `
 
-    container.querySelector('.nav').insertAdjacentHTML('beforeend', itemHTML)
+        container.querySelector('.nav').insertAdjacentHTML('beforeend', itemHTML)
 
-    $(`#${itemId}`, container).html(
-      renderButtonDropdownLink({
-        value: item.value,
-        onclick: item.onclick,
-        dropdown: item.dropdown,
-      }),
-    )
-  })
+        $(`#${itemId}`, container).html(
+            renderButtonDropdownLink({
+                value: item.value,
+                onclick: item.onclick,
+                dropdown: item.dropdown,
+            }),
+        )
+    })
 }

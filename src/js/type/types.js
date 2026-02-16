@@ -4,6 +4,7 @@
  * @property {string} title
  * @property {function} onclick
  * @property {string} href
+ * @property {boolean} isHeader
  * @property {DropdownItemPropTypes[]} dropdown
  */
 
@@ -12,6 +13,7 @@
  * @property {string} value - button text
  * @property {string} href - button link
  * @property {function} onclick - click event handler
+ * @property {boolean} isHeader - indicates if the item is a header
  * @property {DropdownItemPropTypes[]} dropdown - array of dropdown items
  */
 
